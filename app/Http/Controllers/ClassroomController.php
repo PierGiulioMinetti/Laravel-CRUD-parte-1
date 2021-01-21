@@ -32,7 +32,7 @@ class ClassroomController extends Controller
      */
     public function create()
     {
-        return 'create a new classroom';
+        return view('classrooms.create');
         
     }
 
