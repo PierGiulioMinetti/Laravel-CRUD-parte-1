@@ -12,8 +12,12 @@
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('classrooms.index') }}">Classrooms <span class="sr-only">(current)</span></a>
-              </li>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ route('classrooms.create') }}">Create <span class="sr-only">(current)</span></a>
+          </li>
            
         </div>
       </nav>
+
 </header>

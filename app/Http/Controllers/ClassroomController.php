@@ -32,7 +32,8 @@ class ClassroomController extends Controller
      */
     public function create()
     {
-        //
+        return 'create a new classroom';
+        
     }
 
     /**
@@ -54,7 +55,10 @@ class ClassroomController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $classroom = Classroom::find($id);
+        // return 'Show ID' . $id;
+        return view('classrooms.show', compact('classroom') );
     }
 
     /**
