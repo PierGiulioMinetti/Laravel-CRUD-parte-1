@@ -54,6 +54,16 @@ class ClassroomController extends Controller
              'description'=> 'required'
         ]);
 
+        // SALVARE SU DB
+        $classroom = new Classroom();
+        $classroom->name = $data['name'];
+        $classroom->description = $data['description'];
+
+        $saved = $classroom->save();
+
+        if($saved == 'true'){
+            return redirect()->route('classrooms.show', $classroom->id);
+        }
     }
 
     /**
