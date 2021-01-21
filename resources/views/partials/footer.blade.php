@@ -1,3 +1,3 @@
 <footer>
-    IO SONO IL FOOTER
+    site powered by giulio
 </footer>

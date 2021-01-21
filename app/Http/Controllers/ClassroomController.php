@@ -18,7 +18,10 @@ class ClassroomController extends Controller
         // get data from DB
 
         $classrooms = Classroom::all();
-        dd($classrooms);
+        // dd($classrooms);
+
+        return view('classrooms.index', compact('classrooms'));
+
 
     }
 
