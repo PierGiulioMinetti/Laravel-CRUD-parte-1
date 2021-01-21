@@ -4,7 +4,7 @@
     <h1>
         CREATE NEW CLASS
     </h1>
-    <form action="" method="POST">
+    <form action="{{ route('classrooms.store') }}" method="POST">
         @csrf
         @method('POST')
         
