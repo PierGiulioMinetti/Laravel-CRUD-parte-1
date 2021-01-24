@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Classroom;
+//  
+use Illuminate\Validation\Rule; 
 
 class ClassroomController extends Controller
 {
@@ -56,8 +58,9 @@ class ClassroomController extends Controller
 
         // SALVARE SU DB
         $classroom = new Classroom();
-        $classroom->name = $data['name'];
-        $classroom->description = $data['description'];
+        // $classroom->name = $data['name'];
+        // $classroom->description = $data['description'];
+        $classroom->fill($data);
 
         $saved = $classroom->save();
 
@@ -88,7 +91,8 @@ class ClassroomController extends Controller
      */
     public function edit($id)
     {
-        //
+        $classroom = Classroom::find($id);
+        return view('classrooms.edit', compact('classroom'));
     }
 
     /**
@@ -100,7 +104,21 @@ class ClassroomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // DATI INVIATI ALLA FORM
+        $data = $request->all();
+
+        // ISTANZA SPECIFICA
+        $classroom = Classroom::find($id);
+
+        // VALIDAZIONE
+        $request->validate([
+            'name'=> [
+                'required',
+                Rule::unique('classrooms')->ignore($id),
+                'max:10'
+            ],
+            'description'=> 'required'
+        ]);
     }
 
     /**

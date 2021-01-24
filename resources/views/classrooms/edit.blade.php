@@ -2,7 +2,7 @@
 
 @section('contenuto')
     <h1>
-        CREATE NEW CLASS
+        Edit {{$classroom->name}}
     </h1>
 
 
@@ -21,20 +21,20 @@
 
     <form action="{{ route('classrooms.store') }}" method="POST">
         @csrf
-        @method('POST')
+        @method('DELETE')
         
         <div class="form-group">
             <label for="name">Classroom name</label>
-            <input class="form-control" type="text" name="name" value="{{ old('name', $classroom->name) }}>
+            <input class="form-control" type="text" name="name" value="{{ old('name', $classroom->name) }}">
         </div>
         
         <div class="form-group">
             <label for="name">Classroom description</label>
-            <textarea class="form-control" type="text" name="description"> {{ old('name', $classroom->description) }} </textarea>
+            <textarea class="form-control" type="text" name="description" > {{ old('name', $classroom->description) }} </textarea>
         </div>
         <div class="form-group">
             
-            <input class="btn btn-primary" type="submit" value="Create"> 
+            <input class="btn btn-primary" type="submit" value="Update"> 
         </div>
     </form>
 @endsection
